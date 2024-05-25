@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ověření kódu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Zadejte svůj kód</h1>
+        <input type="text" id="codeInput" placeholder="Zadejte kód">
+        <button onclick="checkCode()">Ověřit</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        const validCodes = {
+            'nokto': 'Získáno: Role na Discordu Noktův Faunoušek | 3 dny SmilosWeb Pro zdarma!',
+           
+            
+        };
+
+        function checkCode() {
+            const inputCode = document.getElementById("codeInput").value.trim();
+            const messageDiv = document.getElementById("message");
+
+            if (validCodes[inputCode]) {
+                messageDiv.innerHTML = `
+                    <h2>Správný kód</h2> Kontaktujte podporu pro získání výhry!
+                    <p>${validCodes[inputCode]}</p>
+                `;
+            } else {
+                messageDiv.innerHTML = `<h2>Neplatný kód. Zkuste to prosím znovu.</h2>`;
+            }
+        }
+    </script>
+</body>
+</html>
